@@ -1,0 +1,23 @@
+{
+   "jsonrpc": "2.0",
+   "method": "v2/notifyPluginState",
+   "params": {
+      "appGUID": "${PLUGIN_APP_GUID}",
+      "moduleName": "${PLUGIN_NAME}",
+      "epoch": "",
+      "states": [
+        {
+          "name": "receive_keyword",
+          "value": ""
+        },
+        {
+          "name": "open_serial_port",
+          "value": ""
+        },
+        {
+          "name": "open_output_file",
+          "value": ""
+        }
+      ]
+   }
+}

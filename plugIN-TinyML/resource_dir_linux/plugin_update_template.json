@@ -1,0 +1,112 @@
+{
+  "jsonrpc": "2.0",
+  "method": "v2/notifyPluginUpdate",
+  "params": {
+    "sdk": "${OCTO_SDK_VERSION}",
+    "appGUID": "${PLUGIN_APP_GUID}",
+    "appName": "${PLUGIN_NAME}",
+    "epoch": "",
+    "displayName": "plugIN TinyML",
+    "type": "ib",
+    "version": "${PLUGIN_VERSION}",
+    "modules": [
+      {
+        "moduleName": "${PLUGIN_NAME}",
+        "displayName": "plugIN TinyML",
+        "properties": [
+          {
+            "name": "current_dir",
+            "displayName": "Current Working Directory",
+            "description": "Print the current working directory",
+            "displayType": "string",
+            "value": ""
+          }
+        ],
+        "states": [
+          {
+            "name": "receive_keyword",
+            "displayCategory": "Keyword",
+            "displayName": "Last Received Keyword",
+            "description": "Last received keyword defined by user",
+            "displayType": "string"
+          },
+          {
+            "name": "open_serial_port",
+            "displayCategory": "Data Stream",
+            "displayName": "Serial Port State",
+            "description": "Monitoring serial port opening condition",
+            "displayType": "string"
+          },
+          {
+            "name": "open_output_file",
+            "displayCategory": "Data Stream",
+            "displayName": "Output File State",
+            "description": "Monitoring output file opening condition",
+            "displayType": "string"
+          }
+        ],
+        "commands": [
+          {
+            "name": "define_keyword",
+            "type": "asynchronous",
+            "displayCategory": "Action",
+            "displayName": "Define Keyword",
+            "description": "Define keyword for searching in log",
+            "params": [
+              {
+                "name": "keyword",
+                "displayName": "Keyword",
+                "description": "Suggested keywords: 'person' or 'chair'",
+                "displayType": "string",
+                "required": true,
+                "defaultValue": "NULL"
+              }
+            ]
+          }
+        ],
+        "metrics": [],
+        "events": [],
+        "alarms": [
+          {
+            "name": "keyword_alarm",
+            "displayCategory": "Message",
+            "displayName": "Keyword alarm",
+            "description": "Trigger when keyword is capturing in detection result",
+            "params": []
+          }
+        ],
+        "configs": [
+          {
+            "name": "Save Log to File",
+            "displayCategory": "Management",
+            "params": [
+              {
+                "name": "Save file?",
+                "displayType": "checkbox",
+                "displayValues": [
+                    "offValue",
+                    "onValue"
+                ],
+                "defaultValue": "offValue",
+                "required": false
+              }
+            ]
+          },
+          {
+            "name": "log_file_directory",
+            "displayName": "Log File Directory",
+            "description": "default path is current working directory",
+            "displayCategory": "Management",
+            "params": [
+              {
+                "name": "(Optional)",
+                "required": false,
+                "displayType": "string"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
